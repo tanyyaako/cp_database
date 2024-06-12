@@ -1,4 +1,4 @@
-package entities;
+package com.example.cp_database.entities;
 import jakarta.persistence.*;
 import java.util.Date;
 
@@ -11,8 +11,9 @@ public class Delivery {
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "ID поставщика", nullable = false)
-    private Long supplierId;
+    @ManyToOne
+    @JoinColumn(name = "ID поставщика", nullable = false, referencedColumnName = "ID")
+    private Supplier supplier;
 
     @Column(name = "Дата доставки", nullable = false)
     private Date deliveryDate;
@@ -24,6 +25,16 @@ public class Delivery {
     @JoinColumn(name = "ID клиента", referencedColumnName = "ID")
     private Client client;
 
+    public Delivery(Long id, Supplier supplier, Date deliveryDate) {
+        this.id = id;
+        this.supplier = supplier;
+        this.deliveryDate = deliveryDate;
+
+    }
+    public Long getSupplierID(){
+        return supplier.getId();
+    }
+
     public Long getId() {
         return id;
     }
@@ -32,12 +43,12 @@ public class Delivery {
         this.id = id;
     }
 
-    public Long getSupplierId() {
-        return supplierId;
+    public Supplier getSupplier() {
+        return supplier;
     }
 
-    public void setSupplierId(Long supplierId) {
-        this.supplierId = supplierId;
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
     }
 
     public Date getDeliveryDate() {

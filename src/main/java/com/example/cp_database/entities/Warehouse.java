@@ -1,4 +1,4 @@
-package entities;
+package com.example.cp_database.entities;
 import jakarta.persistence.*;
 import java.util.Date;
 

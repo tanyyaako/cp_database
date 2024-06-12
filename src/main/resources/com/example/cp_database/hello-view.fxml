@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.cp_database.HelloController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
+<?import javafx.scene.layout.AnchorPane?>
 
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+
+<AnchorPane fx:controller="com.example.cp_database.controllers.HelloController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="157.0" layoutY="84.0" mnemonicParsing="false" onAction="#doSecondAction" prefHeight="35.0" prefWidth="70.0" text="Запрос 2" />
+      <Button fx:id="firstReq" layoutX="54.0" layoutY="84.0" mnemonicParsing="false" onAction="#doFirstAction" prefHeight="35.0" prefWidth="70.0" text="Запрос 1" textFill="#080808" />
+      <Button layoutX="264.0" layoutY="84.0" mnemonicParsing="false" onAction="#doThirdAction" prefHeight="35.0" prefWidth="70.0" text="Запрос 3" />
+      <Button layoutX="371.0" layoutY="84.0" mnemonicParsing="false" onAction="#doFourthAction" prefHeight="35.0" prefWidth="70.0" text="Запрос 4" />
+      <Button layoutX="471.0" layoutY="84.0" mnemonicParsing="false" onAction="#doFifthAction" prefHeight="35.0" prefWidth="70.0" text="Запрос 5" />
+      <Button layoutX="371.0" layoutY="164.0" mnemonicParsing="false" onAction="#doUpdateAction" prefHeight="35.0" prefWidth="70.0" text="Изменить" />
+      <Button layoutX="265.0" layoutY="164.0" mnemonicParsing="false" onAction="#doDeleteAction" prefHeight="35.0" prefWidth="70.0" text="Удалить" />
+      <Button layoutX="157.0" layoutY="164.0" mnemonicParsing="false" onAction="#doAddAction" prefHeight="35.0" prefWidth="70.0" text="Добавить" />
+      <Button layoutX="371.0" layoutY="242.0" mnemonicParsing="false" onAction="#doThird_thirdAction" prefHeight="35.0" prefWidth="70.0" text="Запрос 3" />
+      <Button layoutX="265.0" layoutY="242.0" mnemonicParsing="false" onAction="#doSecond_secondAction" prefHeight="35.0" prefWidth="70.0" text="Запрос 2" />
+      <Button layoutX="157.0" layoutY="242.0" mnemonicParsing="false" onAction="#doFirst_firstAction" prefHeight="35.0" prefWidth="70.0" text="Запрос 1" />
+   </children>
+</AnchorPane>
