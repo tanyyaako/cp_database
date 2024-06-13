@@ -57,7 +57,20 @@ public class HelloController {
 
         @FXML
         void doSecondAction(ActionEvent event) {
+                try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/cp_database/second_request.fxml"));
+                        Parent root = loader.load();
 
+                        Scene scene = new Scene(root);
+
+                        Stage currentStage = (Stage) firstReq.getScene().getWindow();
+
+                        currentStage.setScene(scene);
+
+                        currentStage.show();
+                } catch (Exception e) {
+                        e.printStackTrace();
+                }
         }
 
         @FXML

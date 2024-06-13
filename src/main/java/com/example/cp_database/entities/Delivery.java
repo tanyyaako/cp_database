@@ -31,6 +31,15 @@ public class Delivery {
         this.deliveryDate = deliveryDate;
 
     }
+
+//    public Delivery(Long id, Date deliveryDate) {
+//        this.id = id;
+//        this.deliveryDate = deliveryDate;
+//    }
+
+//    public Delivery() {
+//    }
+
     public Long getSupplierID(){
         return supplier.getId();
     }

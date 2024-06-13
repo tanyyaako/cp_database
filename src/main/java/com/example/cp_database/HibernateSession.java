@@ -8,7 +8,7 @@ import org.hibernate.cfg.Configuration;
 public class HibernateSession {
     public static SessionFactory sessionFactory() {
         return new Configuration()
-                .setProperty("hibernate.connection.url", "jdbc:postgresql://localhost:5432/printing_house")
+                .setProperty("hibernate.connection.url", "jdbc:postgresql://localhost:5432/CourseProject")
                 .setProperty("hibernate.connection.username", "postgres")
                 .setProperty("hibernate.connection.password", "admin")
                 .setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect")
