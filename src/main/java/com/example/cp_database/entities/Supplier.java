@@ -23,6 +23,12 @@ public class Supplier {
     @Column(name = "Котактный номер")
     private String contactNumber;
 
+    public Supplier(String name, String contactNumber, Warehouse warehouse) {
+        this.name = name;
+        this.contactNumber = contactNumber;
+        this.warehouse = warehouse;
+    }
+
     public Long getId() {
         return id;
     }

@@ -26,10 +26,12 @@ public class Client {
     @JoinColumn(name = "ID сотрудника", referencedColumnName = "ID ")
     private Employee employee;
 
-    public Client(String email, String lastName, String firstName) {
-        this.email = email;
-        this.lastName = lastName;
+    public Client(String firstName, String lastName, String email) {
         this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+
+
     }
 
     public Long getId() {
