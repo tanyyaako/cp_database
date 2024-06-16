@@ -127,7 +127,7 @@ public class AddReqController implements Initializable {
         surnameColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         numberColumn.setCellValueFactory(new PropertyValueFactory<>("contactNumber"));
         gmailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
-        IDsotrudColumn.setCellValueFactory(new PropertyValueFactory<>("emoloyeeid"));
+        IDsotrudColumn.setCellValueFactory(new PropertyValueFactory<>("employeeId"));
         showInfo();
     }
 }

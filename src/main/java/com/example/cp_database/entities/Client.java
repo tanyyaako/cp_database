@@ -34,9 +34,20 @@ public class Client {
 
     }
 
-
+//    public Client(String contactNumber, String email, Employee employee, String firstName, Long id, String lastName) {
+//        this.contactNumber = contactNumber;
+//        this.email = email;
+//        this.employee = employee;
+//        this.firstName = firstName;
+//        this.id = id;
+//        this.lastName = lastName;
+//    }
 
     public Client() {
+    }
+
+    public Long getEmployeeId(){
+        return employee.getId();
     }
 
     public Long getId() {

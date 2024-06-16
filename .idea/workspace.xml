@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47e3bb79-03f5-4937-b278-9a49b6a7c6ba" name="Changes" comment="Done 5 requests">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cp_database/controllers/AddReqController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cp_database/controllers/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cp_database/controllers/HelloController.java" afterDir="false" />
+    <list default="true" id="47e3bb79-03f5-4937-b278-9a49b6a7c6ba" name="Changes" comment="Addreq">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cp_database/controllers/AddReqController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cp_database/controllers/AddReqController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cp_database/entities/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cp_database/entities/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cp_database/entities/Supplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cp_database/entities/Supplier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cp_database/add_request.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cp_database/add_request.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cp_database/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cp_database/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +111,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718534650392</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Addreq">
+      <option name="closed" value="true" />
+      <created>1718570966676</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1718570966676</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -124,7 +127,8 @@
     <MESSAGE value="2req" />
     <MESSAGE value="3req" />
     <MESSAGE value="Done 5 requests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Done 5 requests" />
+    <MESSAGE value="Addreq" />
+    <option name="LAST_COMMIT_MESSAGE" value="Addreq" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
