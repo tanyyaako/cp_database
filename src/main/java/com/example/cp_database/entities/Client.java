@@ -34,6 +34,11 @@ public class Client {
 
     }
 
+
+
+    public Client() {
+    }
+
     public Long getId() {
         return id;
     }

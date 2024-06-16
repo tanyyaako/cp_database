@@ -10,9 +10,9 @@
       <Button layoutX="264.0" layoutY="84.0" mnemonicParsing="false" onAction="#doThirdAction" prefHeight="35.0" prefWidth="70.0" text="Запрос 3" />
       <Button layoutX="371.0" layoutY="84.0" mnemonicParsing="false" onAction="#doFourthAction" prefHeight="35.0" prefWidth="70.0" text="Запрос 4" />
       <Button layoutX="471.0" layoutY="84.0" mnemonicParsing="false" onAction="#doFifthAction" prefHeight="35.0" prefWidth="70.0" text="Запрос 5" />
-      <Button layoutX="371.0" layoutY="164.0" mnemonicParsing="false" onAction="#doUpdateAction" prefHeight="35.0" prefWidth="70.0" text="Изменить" />
-      <Button layoutX="265.0" layoutY="164.0" mnemonicParsing="false" onAction="#doDeleteAction" prefHeight="35.0" prefWidth="70.0" text="Удалить" />
-      <Button layoutX="157.0" layoutY="164.0" mnemonicParsing="false" onAction="#doAddAction" prefHeight="35.0" prefWidth="70.0" text="Добавить" />
+      <Button layoutX="204.0" layoutY="164.0" mnemonicParsing="false" onAction="#doUpdateAction" prefHeight="35.0" prefWidth="190.0" text="Изменить данные клиента" />
+      <Button layoutX="450.0" layoutY="164.0" mnemonicParsing="false" onAction="#doDeleteAction" prefHeight="35.0" prefWidth="135.0" text="Удалить клиента" />
+      <Button layoutX="14.0" layoutY="164.0" mnemonicParsing="false" onAction="#doAddAction" prefHeight="35.0" prefWidth="135.0" text="Добавить клиента" />
       <Button layoutX="371.0" layoutY="242.0" mnemonicParsing="false" onAction="#doThird_thirdAction" prefHeight="35.0" prefWidth="70.0" text="Запрос 3" />
       <Button layoutX="265.0" layoutY="242.0" mnemonicParsing="false" onAction="#doSecond_secondAction" prefHeight="35.0" prefWidth="70.0" text="Запрос 2" />
       <Button layoutX="157.0" layoutY="242.0" mnemonicParsing="false" onAction="#doFirst_firstAction" prefHeight="35.0" prefWidth="70.0" text="Запрос 1" />

@@ -12,7 +12,20 @@ public class HelloController {
         private Button firstReq;
         @FXML
         void doAddAction(ActionEvent event) {
+                try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/cp_database/add_request.fxml"));
+                        Parent root = loader.load();
 
+                        Scene scene = new Scene(root);
+
+                        Stage currentStage = (Stage) firstReq.getScene().getWindow();
+
+                        currentStage.setScene(scene);
+
+                        currentStage.show();
+                } catch (Exception e) {
+                        e.printStackTrace();
+                }
         }
 
         @FXML

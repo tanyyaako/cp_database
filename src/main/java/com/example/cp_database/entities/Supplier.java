@@ -23,6 +23,9 @@ public class Supplier {
     @Column(name = "Котактный номер")
     private String contactNumber;
 
+    public Supplier() {
+    }
+
     public Supplier(String name, String contactNumber, Warehouse warehouse) {
         this.name = name;
         this.contactNumber = contactNumber;
