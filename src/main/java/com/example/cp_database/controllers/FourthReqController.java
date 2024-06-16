@@ -1,20 +1,17 @@
 package com.example.cp_database.controllers;
 
 import com.example.cp_database.HibernateSession;
-import com.example.cp_database.entities.Supplier;
 import jakarta.persistence.Query;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -23,31 +20,31 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class ThirdReqController implements Initializable {
+public class FourthReqController implements Initializable {
 
     @FXML
-    private TableColumn<Answer, String> addressNumber;
+    private TableColumn<Answer, Integer> addressColumn;
 
     @FXML
-    private TableView<Answer> content_in_table;
+    private TableView<Answer> conten_in_field;
 
     @FXML
-    private TableColumn<Answer, String> nameColumn;
+    private TableColumn<Answer, Integer> nameColumn;
 
     @FXML
-    private TableColumn<Answer, String> numberColumn;
+    private TextField search_field;
 
     @FXML
-    private TextField text_fiald;
+    private TableColumn<Answer, Integer> typeColumn;
 
     protected class Answer{
         private String name;
-        private String contactNumber;
+        private String productType;
         private String address;
 
-        public Answer(String name, String contactNumber,String address) {
+        public Answer(String name, String productType,String address) {
             this.address = address;
-            this.contactNumber = contactNumber;
+            this.productType = productType;
             this.name = name;
         }
 
@@ -59,25 +56,24 @@ public class ThirdReqController implements Initializable {
             return name;
         }
 
-        public String getContactNumber() {
-            return contactNumber;
+        public String getProductType() {
+            return productType;
         }
     }
-
     @FXML
     void dosearch(ActionEvent event) {
         Platform.runLater(() -> {
             HibernateSession.sessionFactory().inTransaction(session -> {
                 Query query = session.createQuery(
-                        "SELECT s.name, s.contactNumber, w.address FROM Supplier s JOIN Warehouse w ON s.warehouse.id = w.id WHERE w.capacity >:n");
-                query.setParameter("n", Integer.parseInt(text_fiald.getText()));
-                List<Answer>list=new ArrayList<>(3);
+                        "SELECT pr.name, pr.productType, w.address FROM Product pr JOIN Warehouse w ON pr.warehouse.id = w.id JOIN Supplier s ON w.id = s.warehouse.id WHERE s.name=:n");
+                query.setParameter("n", search_field.getText());
+                List<Answer> list=new ArrayList<>(3);
                 for (Object o: query.getResultList()){
                     Object[]answers=(Object[]) o;
                     list.add(new Answer((String)answers[0],(String)answers[1],(String)answers[2]));
                 }
                 ObservableList<Answer> anslist = FXCollections.observableArrayList(list);
-                content_in_table.setItems(anslist);
+                conten_in_field.setItems(anslist);
             });
         });
     }
@@ -90,7 +86,7 @@ public class ThirdReqController implements Initializable {
 
             Scene scene = new Scene(root);
 
-            Stage currentStage = (Stage) content_in_table.getScene().getWindow();
+            Stage currentStage = (Stage) conten_in_field.getScene().getWindow();
 
             currentStage.setScene(scene);
 
@@ -103,8 +99,7 @@ public class ThirdReqController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        numberColumn.setCellValueFactory(new PropertyValueFactory<>("contactNumber"));
-        addressNumber.setCellValueFactory(new PropertyValueFactory<>("address"));
+        typeColumn.setCellValueFactory(new PropertyValueFactory<>("productType"));
+        addressColumn.setCellValueFactory(new PropertyValueFactory<>("address"));
     }
 }
-

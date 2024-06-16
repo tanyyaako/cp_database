@@ -36,6 +36,12 @@ public class Product {
     @JoinColumn(name = "ID склада", referencedColumnName = "ID", nullable = false)
     private Warehouse warehouse;
 
+    public Product(String name, String productType, Warehouse warehouse) {
+        this.name = name;
+        this.productType = productType;
+        this.warehouse = warehouse;
+    }
+
     public Long getId() {
         return id;
     }
