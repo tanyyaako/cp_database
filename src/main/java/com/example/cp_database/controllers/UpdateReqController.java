@@ -1,12 +1,8 @@
 package com.example.cp_database.controllers;
 
-
 import com.example.cp_database.ErrorWindow;
 import com.example.cp_database.HibernateSession;
 import com.example.cp_database.entities.Client;
-import com.example.cp_database.entities.Delivery;
-import com.example.cp_database.entities.Employee;
-import com.example.cp_database.entities.Supplier;
 import jakarta.persistence.Query;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -23,76 +19,64 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AddReqController implements Initializable {
+public class UpdateReqController implements Initializable {
 
     @FXML
     private Text errorText;
 
     @FXML
-    private TextField IDemploeeField;
-
-    @FXML
-    private TableColumn<Client, Long> IDsotrudColumn;
-
-    @FXML
     private TableView<Client> content_in_table;
-
     @FXML
-    private TableColumn<Client, String> gmailColumn;
-
+    private TextField idField;
     @FXML
-    private TextField gmailField;
-
-    @FXML
-    private TableColumn<Client, Long> idColumn;
-
-    @FXML
-    private TableColumn<Client, String> nameColumn;
-
+    private TextField mailField;
     @FXML
     private TextField nameField;
-
-    @FXML
-    private TableColumn<Client, String> numberColumn;
-
     @FXML
     private TextField numberField;
-
-    @FXML
-    private TableColumn<Client, String> surnameColumn;
-
     @FXML
     private TextField surnameField;
 
     @FXML
-    void doAdd(ActionEvent event) {
+    private TableColumn<Client, Long> idSotColumn;
+
+    @FXML
+    private TableColumn<Client, Integer> mailColumn;
+
+    @FXML
+    private TableColumn<Client, Integer> nameColumn;
+
+    @FXML
+    private TableColumn<Client, Integer> numberColumn;
+
+    @FXML
+    private TableColumn<Client, Integer> surnameColumn;
+    @FXML
+    private TableColumn<Client, Long> idColumn;
+
+    @FXML
+    void doUpdate(ActionEvent event) {
         Platform.runLater(() -> {
-                    HibernateSession.sessionFactory().inTransaction(session -> {
-                                try {
-                                    Employee employee = session.get(Employee.class, Long.parseLong(IDemploeeField.getText()));
-                                    Client client = new Client();
-                                    if (!nameField.getText().isEmpty())client.setFirstName(nameField.getText());
-                                    if (!surnameField.getText().isEmpty())client.setLastName(surnameField.getText());
-                                    if (!gmailField.getText().isEmpty())client.setEmail(gmailField.getText());
-                                    if (!numberField.getText().isEmpty())client.setContactNumber(numberField.getText());
-                                    client.setEmployee(employee);
-                                    if(!numberField.getText().isEmpty() && !gmailField.getText().isEmpty() && employee!=null)session.save(client);
-                                }catch (NumberFormatException e){
-                                    ErrorWindow.showError(errorText);
-                                }
-                            }
-
-                    );
+            HibernateSession.sessionFactory().inTransaction(session -> {
+                try {
+                    Client client = session.get(Client.class, Integer.parseInt(idField.getText()));
+                    if (client != null) {
+                        if (!nameField.getText().isEmpty()) client.setFirstName(nameField.getText());
+                        if (!surnameField.getText().isEmpty()) client.setLastName(surnameField.getText());
+                        if (!numberField.getText().isEmpty()) client.setContactNumber(numberField.getText());
+                        if (!mailField.getText().isEmpty()) client.setEmail(mailField.getText());
+                        session.save(client);
+                        showInfo();
+                    }
+                }catch (NumberFormatException e){
+                    ErrorWindow.showError(errorText);
                 }
-
-        );
-        showInfo();
+            });
+        });
     }
-
 
     @FXML
     void goBack(ActionEvent event) {
@@ -112,7 +96,7 @@ public class AddReqController implements Initializable {
         }
     }
 
-    private void showInfo() {
+    private void showInfo(){
         Platform.runLater(() -> {
                     HibernateSession.sessionFactory().inTransaction(session -> {
                                 Query query = session.createQuery(
@@ -135,8 +119,8 @@ public class AddReqController implements Initializable {
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         surnameColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         numberColumn.setCellValueFactory(new PropertyValueFactory<>("contactNumber"));
-        gmailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
-        IDsotrudColumn.setCellValueFactory(new PropertyValueFactory<>("employeeId"));
+        mailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
+        idSotColumn.setCellValueFactory(new PropertyValueFactory<>("employeeId"));
         showInfo();
     }
 }

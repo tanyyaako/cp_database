@@ -5,18 +5,20 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cp_database.controllers.ThirdReqController">
    <children>
       <Button layoutX="515.0" layoutY="14.0" mnemonicParsing="false" onAction="#dosearch" prefHeight="25.0" prefWidth="70.0" text="Поиск" />
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goback" prefHeight="25.0" prefWidth="70.0" text="Назад" />
       <TextField fx:id="text_fiald" layoutX="150.0" layoutY="14.0" prefHeight="25.0" prefWidth="300.0" promptText="Введите ID склада" />
-      <TableView fx:id="content_in_table" layoutY="50.0" prefHeight="315.0" prefWidth="600.0">
+      <TableView fx:id="content_in_table" layoutY="78.0" prefHeight="315.0" prefWidth="600.0">
         <columns>
           <TableColumn fx:id="nameColumn" prefWidth="192.00000607967377" text="Название" />
           <TableColumn fx:id="numberColumn" prefWidth="196.79998779296875" text="Контактный номер" />
             <TableColumn fx:id="addressNumber" prefWidth="213.60000610351562" text="Адрес склада" />
         </columns>
       </TableView>
+      <Text fx:id="errorText" fill="RED" layoutX="213.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Введены некорректные данные" />
    </children>
 </AnchorPane>

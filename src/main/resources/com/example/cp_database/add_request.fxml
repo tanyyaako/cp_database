@@ -5,6 +5,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cp_database.controllers.AddReqController">
    <children>
@@ -25,5 +26,6 @@
             <TableColumn fx:id="IDsotrudColumn" prefWidth="110.4000244140625" text="ID сотрудника" />
         </columns>
       </TableView>
+      <Text fx:id="errorText" fill="RED" layoutX="213.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Введены некорректные данные" />
    </children>
 </AnchorPane>

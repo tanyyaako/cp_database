@@ -1,5 +1,6 @@
 package com.example.cp_database.controllers;
 
+import com.example.cp_database.ErrorWindow;
 import com.example.cp_database.HibernateSession;
 import com.example.cp_database.entities.Client;
 import jakarta.persistence.Query;
@@ -14,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -24,6 +26,9 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 public class SecondReqController implements Initializable {
+
+    @FXML
+    private Text errorText;
 
     @FXML
     private TableView<Client> content_in_table;
@@ -44,20 +49,25 @@ public class SecondReqController implements Initializable {
     void dosearch(ActionEvent event) {
         Platform.runLater(() -> {
                     HibernateSession.sessionFactory().inTransaction(session -> {
-                                Query query = session.createQuery(
-                                        "SELECT c.firstName, c.lastName, c.email FROM Client c JOIN Delivery d ON c.id = d.client.id WHERE d.deliveryDate =:n", Client.class
-                                );
-                                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd");
-                                Date date = null;
                                 try {
-                                    date = dateFormat.parse(search_field.getText());
-                                } catch (ParseException e) {
-                                    throw new RuntimeException(e);
+                                    Query query = session.createQuery(
+                                            "SELECT c.firstName, c.lastName, c.email FROM Client c JOIN Delivery d ON c.id = d.client.id WHERE d.deliveryDate =:n", Client.class
+                                    );
+                                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd");
+                                    Date date = null;
+                                    try {
+                                        date = dateFormat.parse(search_field.getText());
+                                    } catch (ParseException e) {
+                                        ErrorWindow.showError(errorText);
+                                    }
+                                    Timestamp timestamp = new Timestamp(date.getTime());
+                                    query.setParameter("n", timestamp);
+                                    ObservableList<Client> list = FXCollections.observableArrayList(query.getResultList());
+                                    content_in_table.setItems(list);
+                                }catch (NullPointerException e){
+                                    ErrorWindow.showError(errorText);
                                 }
-                                Timestamp timestamp = new Timestamp(date.getTime());
-                                query.setParameter("n", timestamp);
-                                ObservableList<Client> list = FXCollections.observableArrayList(query.getResultList());
-                                content_in_table.setItems(list);
+
                             }
 
                     );
@@ -86,6 +96,7 @@ public class SecondReqController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        errorText.setVisible(false);
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         surnameColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         mailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));

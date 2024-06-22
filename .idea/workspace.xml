@@ -4,9 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47e3bb79-03f5-4937-b278-9a49b6a7c6ba" name="Changes" comment="Addreq">
+    <list default="true" id="47e3bb79-03f5-4937-b278-9a49b6a7c6ba" name="Changes" comment="AddreqFull">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cp_database/ErrorWindow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cp_database/controllers/DeleteReqController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cp_database/controllers/FirstAgregationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cp_database/controllers/SecondAgregationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cp_database/controllers/ThirdAgregationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cp_database/controllers/UpdateReqController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/cp_database/entities/Orders.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/cp_database/First_agregation.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/cp_database/Second_agregation.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/cp_database/Third_agregation.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cp_database/controllers/AddReqController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cp_database/controllers/AddReqController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cp_database/entities/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cp_database/entities/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cp_database/controllers/FirstReqController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cp_database/controllers/FirstReqController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cp_database/controllers/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cp_database/controllers/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cp_database/controllers/SecondReqController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cp_database/controllers/SecondReqController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cp_database/controllers/ThirdReqController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cp_database/controllers/ThirdReqController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cp_database/add_request.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cp_database/add_request.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cp_database/delete_request.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cp_database/delete_request.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cp_database/first_request.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cp_database/first_request.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cp_database/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cp_database/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cp_database/second_request.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cp_database/second_request.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cp_database/third_request.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cp_database/third_request.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cp_database/update_request.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cp_database/update_request.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +140,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718570966676</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="AddreqFull">
+      <option name="closed" value="true" />
+      <created>1718571407749</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1718571407749</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -128,7 +157,8 @@
     <MESSAGE value="3req" />
     <MESSAGE value="Done 5 requests" />
     <MESSAGE value="Addreq" />
-    <option name="LAST_COMMIT_MESSAGE" value="Addreq" />
+    <MESSAGE value="AddreqFull" />
+    <option name="LAST_COMMIT_MESSAGE" value="AddreqFull" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

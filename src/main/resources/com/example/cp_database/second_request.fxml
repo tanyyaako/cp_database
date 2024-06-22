@@ -5,18 +5,20 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cp_database.controllers.SecondReqController">
    <children>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goback" prefHeight="25.0" prefWidth="70.0" text="Назад" />
       <Button layoutX="515.0" layoutY="14.0" mnemonicParsing="false" onAction="#dosearch" prefHeight="25.0" prefWidth="70.0" text="Поиск" />
-      <TextField fx:id="search_field" layoutX="157.0" layoutY="14.0" prefHeight="25.0" prefWidth="300.0" promptText="Введите дату доставки(пример : 01.01.2021)" />
-      <TableView fx:id="content_in_table" layoutX="2.0" layoutY="57.0" prefHeight="315.0" prefWidth="600.0">
+      <TextField fx:id="search_field" layoutX="157.0" layoutY="14.0" prefHeight="25.0" prefWidth="300.0" promptText="Введите дату доставки(пример : yyyy.MM.dd)" />
+      <TableView fx:id="content_in_table" layoutX="1.0" layoutY="78.0" prefHeight="315.0" prefWidth="600.0">
         <columns>
           <TableColumn fx:id="nameColumn" prefWidth="148.7999939918518" text="Имя" />
           <TableColumn fx:id="surnameColumn" prefWidth="206.4000244140625" text="Фамилия" />
             <TableColumn fx:id="mailColumn" prefWidth="244.79989624023438" text="email" />
         </columns>
       </TableView>
+      <Text fx:id="errorText" fill="RED" layoutX="220.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Введены некорректные данные" />
    </children>
 </AnchorPane>

@@ -2,17 +2,17 @@ package com.example.cp_database.controllers;
 
 import com.example.cp_database.ErrorWindow;
 import com.example.cp_database.HibernateSession;
-import com.example.cp_database.entities.Supplier;
 import jakarta.persistence.Query;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -25,62 +25,38 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class ThirdReqController implements Initializable {
+public class FirstAgregationController implements Initializable {
 
     @FXML
     private Text errorText;
 
     @FXML
-    private TableColumn<Answer, String> addressNumber;
+    private TableView<Answer> content_in_table;
+
+
 
     @FXML
-    private TableView<Answer> content_in_table;
+    private TextField idField;
 
     @FXML
     private TableColumn<Answer, String> nameColumn;
 
     @FXML
-    private TableColumn<Answer, String> numberColumn;
+    private TableColumn<Answer, String> surnameColumn;
 
     @FXML
-    private TextField text_fiald;
-
-    protected class Answer{
-        private String name;
-        private String contactNumber;
-        private String address;
-
-        public Answer(String name, String contactNumber,String address) {
-            this.address = address;
-            this.contactNumber = contactNumber;
-            this.name = name;
-        }
-
-        public String getAddress() {
-            return address;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public String getContactNumber() {
-            return contactNumber;
-        }
-    }
-
-    @FXML
-    void dosearch(ActionEvent event) {
+    void doSearch(ActionEvent event) {
         Platform.runLater(() -> {
             HibernateSession.sessionFactory().inTransaction(session -> {
-                try {
+                try{
                     Query query = session.createQuery(
-                            "SELECT s.name, s.contactNumber, w.address FROM Supplier s JOIN Warehouse w ON s.warehouse.id = w.id WHERE w.capacity >:n");
-                    query.setParameter("n", Integer.parseInt(text_fiald.getText()));
-                    List<Answer>list=new ArrayList<>(3);
+                            "SELECT o.client.id, COUNT(*)  " +
+                                    "FROM Orders o" +
+                                    " GROUP BY o.client.id ");
+                    List<Answer> list=new ArrayList<>(2);
                     for (Object o: query.getResultList()){
                         Object[]answers=(Object[]) o;
-                        list.add(new Answer((String)answers[0],(String)answers[1],(String)answers[2]));
+                        list.add(new Answer((Long) answers[0],(Long) answers[1]));
                     }
                     ObservableList<Answer> anslist = FXCollections.observableArrayList(list);
                     content_in_table.setItems(anslist);
@@ -92,7 +68,7 @@ public class ThirdReqController implements Initializable {
     }
 
     @FXML
-    void goback(ActionEvent event) {
+    void goBack(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/cp_database/hello-view.fxml"));
             Parent root = loader.load();
@@ -109,12 +85,37 @@ public class ThirdReqController implements Initializable {
         }
     }
 
+    protected class Answer{
+        private Long id;
+        private Long count;
+
+        public Answer(Long count, Long id) {
+            this.count = count;
+            this.id = id;
+        }
+
+        public Long getCount() {
+            return count;
+        }
+
+        public void setCount(Long count) {
+            this.count = count;
+        }
+
+        public Long getId() {
+            return id;
+        }
+
+        public void setId(Long id) {
+            this.id = id;
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         errorText.setVisible(false);
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        numberColumn.setCellValueFactory(new PropertyValueFactory<>("contactNumber"));
-        addressNumber.setCellValueFactory(new PropertyValueFactory<>("address"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        surnameColumn.setCellValueFactory(new PropertyValueFactory<>("count"));
     }
 }
 

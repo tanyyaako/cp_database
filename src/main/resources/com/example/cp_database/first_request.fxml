@@ -5,12 +5,13 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cp_database.controllers.FirstReqController">
    <children>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goback" prefHeight="26.0" prefWidth="70.0" text="Назад" />
       <Button layoutX="499.0" layoutY="14.0" mnemonicParsing="false" onAction="#dosearch" prefHeight="26.0" prefWidth="70.0" text="Поиск" />
-      <TableView fx:id="content_in_table" layoutY="53.0" prefHeight="315.0" prefWidth="600.0">
+      <TableView fx:id="content_in_table" layoutY="78.0" prefHeight="315.0" prefWidth="600.0">
         <columns>
           <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="dataColumn" prefWidth="108.79999542236328" text="Дата доставки" />
@@ -18,5 +19,6 @@
         </columns>
       </TableView>
       <TextField fx:id="address_field" layoutX="150.0" layoutY="14.0" prefHeight="25.0" prefWidth="300.0" promptText="Введите адрес доставки" />
+      <Text fx:id="errorText" fill="RED" layoutX="213.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Введены некорректные данные" />
    </children>
 </AnchorPane>

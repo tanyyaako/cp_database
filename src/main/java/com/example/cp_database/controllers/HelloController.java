@@ -30,7 +30,20 @@ public class HelloController {
 
         @FXML
         void doDeleteAction(ActionEvent event) {
+                try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/cp_database/delete_request.fxml"));
+                        Parent root = loader.load();
 
+                        Scene scene = new Scene(root);
+
+                        Stage currentStage = (Stage) firstReq.getScene().getWindow();
+
+                        currentStage.setScene(scene);
+
+                        currentStage.show();
+                } catch (Exception e) {
+                        e.printStackTrace();
+                }
         }
 
         @FXML
@@ -73,7 +86,20 @@ public class HelloController {
 
         @FXML
         void doFirst_firstAction(ActionEvent event) {
+                try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/cp_database/First_agregation.fxml"));
+                        Parent root = loader.load();
 
+                        Scene scene = new Scene(root);
+
+                        Stage currentStage = (Stage) firstReq.getScene().getWindow();
+
+                        currentStage.setScene(scene);
+
+                        currentStage.show();
+                } catch (Exception e) {
+                        e.printStackTrace();
+                }
         }
 
         @FXML
@@ -114,7 +140,20 @@ public class HelloController {
 
         @FXML
         void doSecond_secondAction(ActionEvent event) {
+                try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/cp_database/Second_agregation.fxml"));
+                        Parent root = loader.load();
 
+                        Scene scene = new Scene(root);
+
+                        Stage currentStage = (Stage) firstReq.getScene().getWindow();
+
+                        currentStage.setScene(scene);
+
+                        currentStage.show();
+                } catch (Exception e) {
+                        e.printStackTrace();
+                }
         }
 
         @FXML
@@ -137,12 +176,38 @@ public class HelloController {
 
         @FXML
         void doThird_thirdAction(ActionEvent event) {
+                try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/cp_database/Third_agregation.fxml"));
+                        Parent root = loader.load();
 
+                        Scene scene = new Scene(root);
+
+                        Stage currentStage = (Stage) firstReq.getScene().getWindow();
+
+                        currentStage.setScene(scene);
+
+                        currentStage.show();
+                } catch (Exception e) {
+                        e.printStackTrace();
+                }
         }
 
         @FXML
         void doUpdateAction(ActionEvent event) {
+                try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/cp_database/update_request.fxml"));
+                        Parent root = loader.load();
 
+                        Scene scene = new Scene(root);
+
+                        Stage currentStage = (Stage) firstReq.getScene().getWindow();
+
+                        currentStage.setScene(scene);
+
+                        currentStage.show();
+                } catch (Exception e) {
+                        e.printStackTrace();
+                }
         }
 
 }

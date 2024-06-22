@@ -1,5 +1,6 @@
 package com.example.cp_database.controllers;
 
+import com.example.cp_database.ErrorWindow;
 import com.example.cp_database.HibernateSession;
 import com.example.cp_database.entities.Delivery;
 import com.example.cp_database.entities.Supplier;
@@ -16,6 +17,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.hibernate.query.Query;
 
@@ -26,6 +28,9 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class FirstReqController implements Initializable {
+
+    @FXML
+    private Text errorText;
 
     @FXML
     private TextField address_field;
@@ -57,26 +62,31 @@ public class FirstReqController implements Initializable {
     void dosearch(ActionEvent event) {
         Platform.runLater(()-> {
             HibernateSession.sessionFactory().inTransaction(session -> {
-                Query<Object[]> query = session.createQuery(
-                        "SELECT d.id, d.deliveryDate, d.supplier FROM Delivery d WHERE d.deliveryAddress =:n ORDER BY d.deliveryDate",
-                        Object[].class
-                );
-                query.setParameter("n", address_field.getText());
-                List<Object[]> resultList = query.getResultList();
-                ObservableList<Delivery> list = FXCollections.observableArrayList();
+                try{
+                    Query<Object[]> query = session.createQuery(
+                            "SELECT d.id, d.deliveryDate, d.supplier FROM Delivery d WHERE d.deliveryAddress =:n ORDER BY d.deliveryDate",
+                            Object[].class
+                    );
+                    query.setParameter("n", address_field.getText());
+                    List<Object[]> resultList = query.getResultList();
+                    ObservableList<Delivery> list = FXCollections.observableArrayList();
 
-                for (Object[] row : resultList) {
-                    Long id = (Long) row[0];
-                    Timestamp deliveryDate = (Timestamp) row[1];
-                    Supplier supplier = (Supplier) row[2];
+                    for (Object[] row : resultList) {
+                        Long id = (Long) row[0];
+                        Timestamp deliveryDate = (Timestamp) row[1];
+                        Supplier supplier = (Supplier) row[2];
 
-                    Delivery delivery = new Delivery(id, supplier, deliveryDate);
+                        Delivery delivery = new Delivery(id, supplier, deliveryDate);
 
 
-                    list.add(delivery);
+                        list.add(delivery);
+                    }
+
+                    content_in_table.setItems(list);
+                }catch (NumberFormatException e){
+                    ErrorWindow.showError(errorText);
                 }
 
-                content_in_table.setItems(list);
             });
         });
     }
@@ -101,6 +111,7 @@ public class FirstReqController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        errorText.setVisible(false);
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         idDelColumn.setCellValueFactory(new PropertyValueFactory<>("supplierID"));
         dataColumn.setCellValueFactory(new PropertyValueFactory<>("deliveryDate"));
